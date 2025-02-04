@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title_block %}Logout{% endblock %}
+{% block body_block %}
+<style>
+    /* Center the logout form */
+    .logout-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f9fa;
+    }
+
+    .logout-form {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .logout-form h2 {
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 24px;
+    }
+
+    .logout-form p {
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: #555;
+    }
+
+    .logout-form button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .logout-form button:hover {
+        background-color: #0056b3;
+    }
+
+    .logout-form a {
+        display: inline-block;
+        color: #007bff;
+        font-size: 16px;
+        text-decoration: none;
+        margin-top: 10px;
+        transition: color 0.3s ease;
+    }
+
+    .logout-form a:hover {
+        color: #0056b3;
+    }
+</style>
+
+<div class="logout-container">
+    <div class="logout-form">
+        <h2>Logout</h2>
+        <form method="POST" action="{% url 'accounts:logout' %}">
+            {% csrf_token %}
+            <p>Are you sure you want to log out?</p>
+            <button type="submit">Yes, log me out</button>
+            <a href="{% url 'shop:home' %}">Cancel</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

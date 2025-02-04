@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Details</title>
+</head>
+<body>
+    <h1>Hello {{ user.get_full_name }},</h1>
+    <p>Welcome to our platform!</p>
+    <h3>Your Project Details:</h3>
+    <ul>
+        <li><strong>Email:</strong> {{ user.email }}</li>
+        <li><strong>Username:</strong> {{ user.profile.username }}</li>
+        <li><strong>Full Name:</strong> {{ user.profile.full_name }}</li>
+        <li><strong>Joined:</strong> {{ user.profile.date_joined }}</li>
+    </ul>
+    <p>We hope you have a great experience with us!</p>
+</body>
+</html>
